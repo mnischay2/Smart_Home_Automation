@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Automation Dashboard</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .hidden { display: none; }
+    #control-panel {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    button {
+      padding: 0.7rem 1.5rem;
+      margin: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .on { background-color: #4caf50; color: white; }
+    .off { background-color: #f44336; color: white; }
+  </style>
+</head>
+<body>
+
+  <div id="g_id_onload"
+       data-client_id="YOUR_GOOGLE_CLIENT_ID"
+       data-callback="handleCredentialResponse"
+       data-auto_prompt="false">
+  </div>
+  <div class="g_id_signin" data-type="standard"></div>
+
+  <div id="control-panel" class="hidden">
+    <h2>Smart Automation Control Panel</h2>
+    <div>
+      <button onclick="toggleRelay(1, 1)" class="on">Turn ON Relay 1</button>
+      <button onclick="toggleRelay(1, 0)" class="off">Turn OFF Relay 1</button>
+    </div>
+    <div>
+      <button onclick="toggleRelay(2, 1)" class="on">Turn ON Relay 2</button>
+      <button onclick="toggleRelay(2, 0)" class="off">Turn OFF Relay 2</button>
+    </div>
+    <div>
+      <button onclick="toggleRelay(3, 1)" class="on">Turn ON Relay 3</button>
+      <button onclick="toggleRelay(3, 0)" class="off">Turn OFF Relay 3</button>
+    </div>
+    <div>
+      <button onclick="toggleRelay(4, 1)" class="on">Turn ON Relay 4</button>
+      <button onclick="toggleRelay(4, 0)" class="off">Turn OFF Relay 4</button>
+    </div>
+    <div id="status"></div>
+  </div>
+
+  <script>
+    const API_KEY = "YOUR_THINGSPEAK_WRITE_API_KEY";
+    const CHANNEL_ID = "YOUR_CHANNEL_ID";
+
+    function handleCredentialResponse(response) {
+      // A real project would verify the token on the server. Here we just proceed.
+      document.querySelector('.g_id_signin').classList.add('hidden');
+      document.getElementById('control-panel').classList.remove('hidden');
+    }
+
+    function toggleRelay(field, value) {
+      fetch(`https://api.thingspeak.com/update?api_key=${API_KEY}&field${field}=${value}`)
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('status').innerText = `Relay ${field} set to ${value === 1 ? 'ON' : 'OFF'}. Update ID: ${data}`;
+          updateStatus(value);
+        })
+        .catch(err => console.error("Error:", err));
+    }
+
+    function updateStatus(value) {
+      fetch(`https://api.thingspeak.com/update?api_key=${API_KEY}&field5=${value}`)
+        .catch(err => console.error("Status update failed:", err));
+    }
+  </script>
+
+</body>
+</html>
