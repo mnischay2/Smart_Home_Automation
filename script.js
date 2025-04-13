@@ -17,6 +17,11 @@ function toggleRelay(field, value) {
     .catch(err => console.error("Error:", err));
 }
 
+function togglebutton1() {
+    
+
+}
+
 function updateStatus(value) {
   fetch(`https://api.thingspeak.com/update?api_key=${API_KEY}&field5=${value}`)
     .catch(err => console.error("Status update failed:", err));

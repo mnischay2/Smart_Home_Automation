@@ -1,0 +1,6 @@
+on
+off
+off
+off
+off
+no
