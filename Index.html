@@ -1,40 +1,13 @@
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Automation Dashboard</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-</head>
-<body>
-  <div id="g_id_onload"
-       data-client_id="YOUR_GOOGLE_CLIENT_ID"
-       data-callback="handleCredentialResponse"
-       data-auto_prompt="false">
-  </div>
-  <div class="g_id_signin" data-type="standard"></div>
-
-  <div id="control-panel" class="hidden">
-    <h2>Smart Automation Control Panel</h2>
-    <div class="relay-group">
-      <button onclick="toggleRelay(1, 1)" class="on">Turn ON Relay 1</button>
-      <button onclick="toggleRelay(1, 0)" class="off">Turn OFF Relay 1</button>
-    </div>
-    <div class="relay-group">
-      <button onclick="toggleRelay(2, 1)" class="on">Turn ON Relay 2</button>
-      <button onclick="toggleRelay(2, 0)" class="off">Turn OFF Relay 2</button>
-    </div>
-    <div class="relay-group">
-      <button onclick="toggleRelay(3, 1)" class="on">Turn ON Relay 3</button>
-      <button onclick="toggleRelay(3, 0)" class="off">Turn OFF Relay 3</button>
-    </div>
-    <div class="relay-group">
-      <button onclick="toggleRelay(4, 1)" class="on">Turn ON Relay 4</button>
-      <button onclick="toggleRelay(4, 0)" class="off">Turn OFF Relay 4</button>
-    </div>
-    <div id="status"></div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
