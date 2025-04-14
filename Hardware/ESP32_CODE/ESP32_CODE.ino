@@ -96,7 +96,7 @@ void loop()
     if (Firebase.RTDB.getInt(&fbdo, F("/relay4/state"), &r4v)) {
       digitalWrite(S4, r4v ? HIGH : LOW);
     }
-    */
+    
 
     delay(2000); // basic polling delay
   }
