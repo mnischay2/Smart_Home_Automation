@@ -14,7 +14,8 @@ const firebaseConfig = {
   
   const relay1 = document.getElementById("relay1");
   const relay2 = document.getElementById("relay2");
-  
+  const relay3 = document.getElementById("relay3");
+  const relay4 = document.getElementById("relay4");
   // Update Firebase when toggles change
   relay1.addEventListener('change', () => {
     db.ref("/relay1/state").set(relay1.checked ? 1 : 0);
@@ -22,6 +23,14 @@ const firebaseConfig = {
   
   relay2.addEventListener('change', () => {
     db.ref("/relay2/state").set(relay2.checked ? 1 : 0);
+  });
+
+  relay3.addEventListener('change', () => {
+    db.ref("/relay3/state").set(relay3.checked ? 1 : 0);
+  });
+
+  relay4.addEventListener('change', () => {
+    db.ref("/relay4/state").set(relay4.checked ? 1 : 0);
   });
   
   // Sync toggle state with Firebase on page load
