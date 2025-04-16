@@ -1,82 +1,173 @@
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #34344e);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 2rem;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    padding: 40px;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
-  
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    margin: 10px;
-  }
-  
-  .switch input {
-    display: none;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #555;
-    transition: 0.4s;
-    border-radius: 34px;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-  }
-  
-  input:checked + .slider {
-    background-color: #00c896;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(26px);
-  }
-  
-  .relay-group {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .relay-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #34344e);
+  color: #fff;
+  display: flex;
+  flex-direction: column; /* Change to column layout */
+  align-items: center;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2rem;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  padding: 40px;
+  max-width: 400px;
+  text-align: center;
+  margin-top: 275px; /* Add space below navbar */
+  margin-bottom: 20px; /* Add some bottom margin */
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin: 10px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #555;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #00c896;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.relay-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.relay-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding in width calculation */
+  position: fixed; /* Fixed at top */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure navbar is on top */
+}
+
+.nav-left, .nav-center, .nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+}
+
+.nav-center h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.info-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.info-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.info-icon {
+  color: #fff;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* Add these styles for the back button and info content */
+.back-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.back-icon {
+  color: #fff;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.info-content {
+  color: #fff;
+  text-align: left;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
