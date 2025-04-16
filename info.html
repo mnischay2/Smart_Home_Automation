@@ -1,0 +1,54 @@
+Home_Automation/info.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Relay Information</title>
+  <link rel="icon" href="src/favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="src/favicon.png" alt="Logo" class="nav-logo">
+    </div>
+    <div class="nav-center">
+      <h2>DOMOV</h2>
+    </div>
+    <div class="nav-right">
+      <button class="back-button" id="backBtn">
+        <a class="back-icon" href="Index.html">←</a>
+      </button>
+    </div>
+  </nav>
+  
+  <div class="glass-card">
+    <h1>Information</h1>
+    <div class="info-content" id="fileContent">
+      <!-- Content from file will be loaded here -->
+      Loading information...
+    </div>
+  </div>
+
+  <script>
+    // Function to load text from a file
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('info.txt')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById('fileContent').innerHTML = data;
+        })
+        .catch(error => {
+          document.getElementById('fileContent').innerHTML = 'Error loading information: ' + error.message;
+        });
+    });
+  </script>
+</body>
+</html>
