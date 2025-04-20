@@ -38,6 +38,10 @@ void setup()
   pinMode(S3, OUTPUT);
   pinMode(S4, OUTPUT);
 
+  digitalWrite(S1,1);
+  digitalWrite(S2,1);
+  digitalWrite(S3,1);
+  digitalWrite(S4,1);
   // Connect to Wi-Fi
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("Connecting to Wi-Fi");
@@ -66,11 +70,10 @@ void setup()
 
 void loop()
 {
-  if (Firebase.ready())
-  {
+  if (Firebase.ready()){
     int r1v = 0, r2v = 0;
 
-    // Read /relay1/state
+    // Read /relay1/state 
     if (Firebase.RTDB.getInt(&fbdo, F("/relay1/state"), &r1v)) {
       Serial.print("Switch1 status: ");
       Serial.println(r1v);
@@ -98,6 +101,6 @@ void loop()
     }
     
 
-    delay(2000); // basic polling delay
+    delay(2000);
   }
 }
