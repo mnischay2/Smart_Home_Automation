@@ -11,14 +11,6 @@ Description:
 ------------
 Domov is a web-based smart home automation system built using the ESP32 microcontroller and Firebase Realtime Database. It allows users to log in securely via Firebase Authentication and control up to four appliances remotely using a web interface.
 
-Technologies Used:
-------------------
-- ESP32 (programmed using Arduino IDE)
-- Firebase (Realtime Database + Authentication)
-- HTML, CSS, JavaScript (Frontend UI)
-- Firebase Web SDK
-- Hosting via Netlify or Firebase Hosting (optional)
-
 Project Features:
 -----------------
 - Real-time relay control synced with Firebase
