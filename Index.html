@@ -9,55 +9,67 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="navbar">
+  <nav class="navbar" id="landingNavbar">
     <div class="nav-left">
-      <img src="src/favicon.png" alt="Logo" class="nav-logo">
-    </div>
-    <div class="nav-center">
-      <h2>DOMOV</h2>
+      <img src="src/favicon.png" alt="Logo" class="nav-logo" />
     </div>
     <div class="nav-right">
-      <button class="info-button" id="infoBtn">
-        <a class="info-icon" href="https://domovautomation.netlify.app/info">i</a>
-      </button>
-    </div>
+      <h2 class="nav-title">DOMOV</h2>
   </nav>
-  
-  <div class="glass-card">
-    <h1>Smart Relay Control</h1>
+
+  <div id="landing-page" class="landing-page">
+    <div class="login-box">
+      <h1>Welcome to DOMOV</h1>
+      <input type="email" id="email" placeholder="Email" autocomplete="username" />
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password" />
+      <button id="loginBtn">Login</button>
+      <p id="loginError" class="error"></p>
+    </div>
+  </div>
+
+  <div class="glass-card-lights" style="display:none;" id="lightsCard">
+    <h1>Your Lights</h1>
     <div class="relay-group">
       <div class="relay-label">
-        <span>Relay 1</span>
+        <span>Light 1</span>
         <label class="switch">
           <input type="checkbox" id="relay1" />
           <span class="slider"></span>
         </label>
       </div>
       <div class="relay-label">
-        <span>Relay 2</span>
+        <span>Light 2</span>
         <label class="switch">
           <input type="checkbox" id="relay2" />
           <span class="slider"></span>
         </label>
       </div>
-      <!-- <div class="relay-label">
-        <span>Relay 3</span>
+    </div>
+  </div>
+
+  <div class="glass-card-switches" style="display:none;" id="switchesCard">
+    <h1>Your Other Devices</h1>
+    <div class="relay-group">
+      <div class="relay-label">
+        <span>Switch 1</span>
         <label class="switch">
           <input type="checkbox" id="relay3" />
           <span class="slider"></span>
         </label>
       </div>
       <div class="relay-label">
-        <span>Relay 4</span>
+        <span>Switch 2</span>
         <label class="switch">
           <input type="checkbox" id="relay4" />
           <span class="slider"></span>
         </label>
-    </div> -->
+      </div>
+    </div>
   </div>
 
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
   <script src="script.js"></script>
 </body>
